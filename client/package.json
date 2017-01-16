@@ -9,7 +9,12 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.1.0"
+    "feathers": "^2.0.3",
+    "feathers-hooks": "^1.7.1",
+    "feathers-socketio": "^1.4.2",
+    "socket.io-client": "^1.7.2",
+    "vue": "^2.1.0",
+    "vuex": "^2.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
