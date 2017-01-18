@@ -2,12 +2,16 @@
   <div id="app">
     <h1>State of drawers</h1>
     <ul>
-      <li v-for="drawer, key in drawers">
-        <input :drawer="key" name="name" @input="updateDrawer" :value="drawer.name">
-        <input :drawer="key" name="eui" :value="drawer.eui" disabled>
-        <input :drawer="key" name="occupied" @input="updateDrawer" :value="drawer.occupied" type="checkbox">
+      <li v-for="drawer in drawers">
+        <input class="noFrame" :drawer="drawer.eui" name="name" @input="updateDrawer" :value="drawer.name">
+        <input class="noFrame" :drawer="drawer.eui" name="eui" :value="drawer.eui" disabled>
+        <input class="noFrame" :drawer="drawer.eui" name="occupied" @click="updateDrawer" :checked="drawer.occupied == true" type="checkbox">
       </li>
     </ul>
+    <label for="new_eui">Name</label>
+    <input name="new_name" title="eui" v-model="new_drawer.name" />
+    <label for="new_eui">Eui</label>
+    <input name="new_eui" title="eui" v-model="new_drawer.eui" />
     <button @click="addDrawer()">Add</button>
   </div>
 </template>
@@ -21,7 +25,7 @@ export default {
   store: Store,
 
   data () {
-    return {}
+    return {new_drawer : {}}
   },
 
   computed:
@@ -31,27 +35,34 @@ export default {
 
   methods:{
     addDrawer(){
-      this.$store.commit('addDrawer', {
-        name: "",
-        eui: Math.floor(Math.random() * 10000),
+      this.$store.dispatch('addDrawer', {
+        name: this.new_drawer.name,
+        eui: this.new_drawer.eui,
         occupied: false,
+        _id: this.new_drawer.eui,
       })
     },
 
     updateDrawer(e){
-      let drawer = e.target.attributes.drawer;
-      let value = e.target.value;
-      this.$store.commit('updateDrawer', {
+      let drawer_id = e.target.attributes.drawer.value;
+      let value     = e.target.value;
+      console.log(drawer_id);
+      this.$store.dispatch('updateDrawer', {
         [e.target.name]: value,
-        id             : drawer.value
+        _id            : drawer_id,
       });
     }
+  },
+  mounted(){
+    setTimeout(()=>this.$store.dispatch('fetchDrawers'),1000);
   }
-
 }
 </script>
 
 <style>
+.noFrame{
+  border:0pt;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

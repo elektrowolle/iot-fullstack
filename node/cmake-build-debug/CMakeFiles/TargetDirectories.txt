@@ -1,0 +1,11 @@
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/node.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir
+/Users/benjaminskirlo/Documents/lora/vuert/node/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir
