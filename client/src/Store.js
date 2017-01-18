@@ -21,6 +21,8 @@ class Drawer{
     this.name     = name;
     this.eui      = eui;
     this.occupied = occupied;
+    this.values   = [];
+    this.load     = 0;
   }
 }
 
@@ -47,11 +49,10 @@ const store = new Vuex.Store({
             // for(let key in payload){
             //     drawer[key] = payload[key];
             // }
-
-            drawer.name     = payload.name     || drawer.name;
-            drawer.eui      = payload.eui      || drawer.eui;
-            drawer.occupied = payload.occupied || drawer.occupied;
-            // Object.assign(drawer, payload);
+            // let newDrawer = new Drawer();
+            // Object.assign(new Drawer(), drawer);
+            // Object.assign(newDrawer, payload);
+            Object.assign(drawer, payload);
 
             state.drawers = Array.from(state.drawers);
 
@@ -105,4 +106,3 @@ messageService.on('patched', function(drawer) {
 });
 
 export default store;
-
