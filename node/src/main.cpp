@@ -7,6 +7,8 @@
 #include <hal/hal.h>
 #include <SPI.h>
 
+#define Serial (Serial ? Serial : Serial1)
+
 // LoRaWAN NwkSKey, network session key
 // This is the default Semtech key, which is used by the prototype TTN
 // network initially.
@@ -33,8 +35,8 @@ static osjob_t measurementjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
-const unsigned TX_INTERVAL = 60;
-const unsigned MEASURE_INTERVAL = 30;
+const unsigned TX_INTERVAL      = 30;
+const unsigned MEASURE_INTERVAL = 15;
 
 void do_send(osjob_t* j);
 
@@ -87,6 +89,7 @@ void onEvent (ev_t ev) {
                     Serial.print(nwkKey[i], HEX);
                 }
                 Serial.println("");
+                digitalWrite(13, LOW);
 
 //                LMIC_setSeqnoUp(140);
             }
@@ -212,6 +215,9 @@ void setup() {
 
     // Set data rate and transmit power (note: txpow seems to be ignored by the library)
     LMIC_setDrTxpow(DR_SF7,14);
+
+    pinMode(13, OUTPUT);
+    digitalWrite(13, HIGH);
 
     do_measure(&measurementjob);
     // Start job (sending automatically starts OTAA too)
