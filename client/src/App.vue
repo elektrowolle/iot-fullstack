@@ -5,7 +5,7 @@
       <li v-for="drawer in drawers">
         <input class="noFrame" :drawer="drawer.eui" name="name" @input="updateDrawer" :value="drawer.name">
         <input class="noFrame" :drawer="drawer.eui" name="eui" :value="drawer.eui" disabled>
-        <input type="range" name="load" :value="drawer.load || 0" min="0" max="4096" disabled>
+        <input type="range" name="load" :value="drawer.load || 0" min="0" max="1024" disabled>
         <input class="noFrame" :drawer="drawer.eui" name="occupied" @click="updateDrawer" :checked="drawer.occupied == true" type="checkbox">
       </li>
     </ul>

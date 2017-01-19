@@ -16,6 +16,7 @@ class Service {
   }
 
   create(data, params) {
+    console.log("params", params);
     if(Array.isArray(data)) {
       return Promise.all(data.map(current => this.create(current)));
     }

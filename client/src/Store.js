@@ -54,6 +54,13 @@ const store = new Vuex.Store({
             // Object.assign(newDrawer, payload);
             Object.assign(drawer, payload);
 
+            let lastValues = drawer.values ? drawer.values[drawer.values.length - 1] : undefined;
+            drawer.load = lastValues ?
+                lastValues.values[0] +
+                lastValues.values[1] +
+                lastValues.values[2] +
+                lastValues.values[3] : 0;
+
             state.drawers = Array.from(state.drawers);
 
             console.log("data for", id, drawers);
