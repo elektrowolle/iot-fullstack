@@ -1,5 +1,5 @@
 # iot-fullstack
-> An application intended to give a quick introduction into a complete IoT-Stack.
+> An application intended to give a quick introduction into a complete LoRaWAN-IoT-Stack.
 
 This project is seperated into 6 parts:
 - The Hardware [Node](node)
