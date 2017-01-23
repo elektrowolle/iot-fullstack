@@ -8,10 +8,11 @@ This project uses [Feathers](http://feathersjs.com).
 ## Getting Started
 
 3. Start your app
-    
-    ```
-    npm start
-    ```
+``` bash
+# install dependencies
+npm install
+npm start
+```
     
 ## API
 The api provides an socket.io and REST interface.
