@@ -17,4 +17,4 @@ This project is seperated into 6 parts:
 5. Import [noder-red flow](node-red)
 6. Install and start [Server](server)
 7. Install and start [Client](client)
-8. Connect to client.
+8. Connect to client
