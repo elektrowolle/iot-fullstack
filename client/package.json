@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "chart.js": "^2.4.0",
     "feathers": "^2.0.3",
     "feathers-hooks": "^1.7.1",
     "feathers-socketio": "^1.4.2",

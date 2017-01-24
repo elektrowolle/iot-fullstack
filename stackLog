@@ -1,0 +1,29 @@
+
+> vuert@1.0.0 dev /Users/benjaminskirlo/Documents/lora/vuert/client
+> cross-env NODE_ENV=development webpack-dev-server --open --inline --hot
+
+
+> feathersvue@0.0.0 start /Users/benjaminskirlo/Documents/lora/vuert/server
+> node src/
+
+24 Jan 11:52:53 - [info] 
+
+Welcome to Node-RED
+===================
+
+24 Jan 11:52:53 - [info] Node-RED version: v0.16.1
+24 Jan 11:52:53 - [info] Node.js  version: v7.4.0
+24 Jan 11:52:53 - [info] Darwin 15.4.0 x64 LE
+24 Jan 11:52:53 - [info] Loading palette nodes
+Project is running at http://localhost:8081/
+webpack output is served from /dist/
+404s will fallback to /index.html
+24 Jan 11:52:55 - [warn] ------------------------------------------------------
+24 Jan 11:52:55 - [warn] [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+24 Jan 11:52:55 - [warn] ------------------------------------------------------
+24 Jan 11:52:55 - [info] Settings file  : /Users/benjaminskirlo/.node-red/settings.js
+24 Jan 11:52:55 - [info] User directory : /Users/benjaminskirlo/.node-red
+24 Jan 11:52:55 - [info] Flows file     : /Users/benjaminskirlo/Documents/lora/vuert/node-red
+24 Jan 11:52:55 - [warn] Communication server error: Error: listen EADDRINUSE 0.0.0.0:1880
+24 Jan 11:52:55 - [error] Unable to listen on http://127.0.0.1:1880/
+24 Jan 11:52:55 - [error] Error: port in use

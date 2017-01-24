@@ -1,12 +1,16 @@
 <template>
   <div id="app">
     <h1>State of drawers</h1>
+    <p>Last update: {{lastUpdateDelta}} seconds ago</p>
     <ul>
       <li v-for="drawer in drawers">
-        <input class="noFrame" :drawer="drawer.eui" name="name" @input="updateDrawer" :value="drawer.name">
-        <input class="noFrame" :drawer="drawer.eui" name="eui" :value="drawer.eui" disabled>
-        <input type="range" name="load" :value="drawer.load || 0" min="0" max="1024" disabled>
-        <input class="noFrame" :drawer="drawer.eui" name="occupied" @click="updateDrawer" :checked="drawer.occupied == true" type="checkbox">
+        <span class="newValue">
+          <input class="noFrame" :drawer="drawer.eui" name="name" @input="updateDrawer" :value="drawer.name" />
+          <input class="noFrame" :drawer="drawer.eui" name="eui" :value="drawer.eui" disabled />
+          <!--<input type="range" name="load" :value=value"1024 - (drawer.load || 0) / 4" min="0" max="1024" disabled />-->
+          <data-chart :values="drawer.values" label="load"/>
+          <!--<input class="noFrame" :drawer="drawer.eui" name="occupied" @click="updateDrawer" :checked="drawer.occupied == true" type="checkbox" />-->
+        </span>
       </li>
     </ul>
     <label for="new_eui">Name</label>
@@ -19,6 +23,7 @@
 
 <script>
 import Store from "./Store.js"
+import ChartComponent from "./ChartComponent.vue"
 import {mapState} from "vuex"
 
 export default {
@@ -26,13 +31,24 @@ export default {
   store: Store,
 
   data () {
-    return {new_drawer : {}}
+    return {
+      new_drawer: {},
+      lastUpdateDelta: 0
+    }
+  },
+
+  components: {
+    "data-chart": ChartComponent,
   },
 
   computed:
     mapState({
       drawers: 'drawers',
+      lastUpdate: 'lastUpdate'
     }),
+  watch:{
+    drawers: v=>{console.log("watcher", v)}
+  },
 
   methods:{
     addDrawer(){
@@ -53,10 +69,14 @@ export default {
         [e.target.name]: value,
         _id            : drawer_id,
       });
-    }
+    },
   },
   mounted(){
-    setTimeout(()=>this.$store.dispatch('fetchDrawers'),1000);
+    setTimeout (()=>this.$store.dispatch('fetchDrawers'),1000);
+    setInterval(()=>{
+      let d = new Date(new Date() - new Date(this.lastUpdate));
+      this.lastUpdateDelta = d.getSeconds() + d.getMinutes() * 60;
+    }, 1000)
   }
 }
 </script>
@@ -90,5 +110,16 @@ li {
 
 a {
   color: #42b983;
+}
+
+@keyframes valueChange{
+  from{background-color: #42b983;}
+  to  {background-color: #fff;}
+}
+
+.newValue, newValue > * {
+  background-color: #fff;
+  animation-name: valueChange;
+  animation-duration: .5s;
 }
 </style>
