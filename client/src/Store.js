@@ -46,12 +46,6 @@ const store = new Vuex.Store({
             let drawer = findDrawer(id, state.drawers)
                 || state.drawers[state.drawers.push({}) - 1];
 
-            // for(let key in payload){
-            //     drawer[key] = payload[key];
-            // }
-            // let newDrawer = new Drawer();
-            // Object.assign(new Drawer(), drawer);
-            // Object.assign(newDrawer, payload);
             Object.assign(drawer, payload);
 
             let lastValues = drawer.values ? drawer.values[drawer.values.length - 1] : undefined;
