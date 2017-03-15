@@ -7,7 +7,7 @@ import Vuex from "vuex"
 import Vue  from 'vue'
 Vue.use(Vuex);
 
-const socket = io('http://localhost:3030');
+const socket = io('http://:3030');
 
 const app = feathers()
     .configure(hooks())
