@@ -1,4 +1,10 @@
 # iot-fullstack
+**deprecated**
+
+---
+
+Read the original [Article](Article.md). 2017, Benjamin Skirlo, IXDS
+
 > An application intended to give a quick introduction into a complete LoRaWAN-IoT-Stack.
 
 This project is seperated into 6 parts:
